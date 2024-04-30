@@ -8,7 +8,7 @@ df = pd.read_excel(excel_file)
 json_data = df.to_json(orient="records")
 
 # Step 3: Write to JSON File
-json_file = "output.json"
+json_file = "data.json"
 with open(json_file, "w") as f:
     f.write(json_data)
 
