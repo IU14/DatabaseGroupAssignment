@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Step 1: Read Excel Data
-excel_file = "Movies Data.xlsx"
+excel_file = "denormalized_data.xlsx"
 df = pd.read_excel(excel_file)
 
 # Step 2: Convert to JSON
