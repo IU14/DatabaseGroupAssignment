@@ -1,0 +1,34 @@
+{
+    "title": "",
+    "year": ,
+    "genre": "",
+    "summary": "",
+    "country": {
+        "name": "",
+        "language": ""
+    },
+    "artists": [
+        {
+            "name": "",
+            "surname": "",
+            "dob": "",
+            "role": "Producer"
+        },
+        {
+            "name": "",
+            "surname": "",
+            "dob": "",
+            "role": ""
+        }
+        
+    ],
+	"User Scores": [
+		{
+			"email": "",
+			"surname": "",
+			"name": "",
+			"Country": "",
+			"score": 
+		}
+}
+   
