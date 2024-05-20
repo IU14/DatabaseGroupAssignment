@@ -1,0 +1,58 @@
+-- Create country table
+CREATE TABLE movie.country (
+    code CHAR(2) PRIMARY KEY,
+    name VARCHAR(255),
+    language VARCHAR(255)
+);
+
+-- Create artist table
+CREATE TABLE movie.artist (
+    artist_id INT PRIMARY KEY,
+    surname VARCHAR(255),
+    name VARCHAR(255),
+    dob INT
+);
+
+-- Create movie table
+CREATE TABLE movie.movie (
+    movie_id INT PRIMARY KEY,
+    title VARCHAR(255),
+    year INT,
+    producer_id INT,
+    genre VARCHAR(255),
+    summary TEXT,
+    country_code CHAR(2),
+    CONSTRAINT fk_producer FOREIGN KEY (producer_id) REFERENCES movie.artist (artist_id),
+    CONSTRAINT fk_country FOREIGN KEY (country_code) REFERENCES movie.country (code)
+);
+
+-- Create role table
+CREATE TABLE movie.role (
+    movie_id INT,
+    actor_id INT,
+    role_name VARCHAR(255),
+    CONSTRAINT pk_role PRIMARY KEY (movie_id, actor_id),
+    CONSTRAINT fk_movie FOREIGN KEY (movie_id) REFERENCES movie.movie (movie_id),
+    CONSTRAINT fk_actor FOREIGN KEY (actor_id) REFERENCES movie.artist (artist_id)
+);
+
+
+
+-- Create user table
+CREATE TABLE movie.user (
+    email VARCHAR(255) PRIMARY KEY,
+    surname VARCHAR(255),
+    name VARCHAR(255),
+    region CHAR(2),
+    CONSTRAINT fk_region FOREIGN KEY (region) REFERENCES movie.country (code)
+);
+
+-- Create score table
+CREATE TABLE movie.score (
+    movie_id INT,
+    email VARCHAR(255),
+    score INT,
+    CONSTRAINT pk_score PRIMARY KEY (movie_id, email),
+    CONSTRAINT fk_score_movie FOREIGN KEY (movie_id) REFERENCES movie.movie (movie_id),
+    CONSTRAINT fk_score_user FOREIGN KEY (email) REFERENCES movie.user (email)
+);
